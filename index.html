@@ -1,70 +1,1826 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maha Shiv</title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#111111">
+
+<title>Maha Shiv | Education • Jobs • Results • Updates</title>
+
+<style>
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+    "Noto Sans Devanagari",
+    "Arial Unicode MS",
+    Arial,
+    sans-serif;
+
+    min-height:100vh;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.58),
+        rgba(0,0,0,.82)
+    ),
+    url("background.png")
+    center center /
+    cover fixed
+    no-repeat;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+
+    width:100%;
+
+    padding:22px 12px;
+
+    text-align:center;
+
+    background:
+    rgba(0,0,0,.68);
+
+    border-bottom:
+    2px solid
+    rgba(255,255,255,.28);
+
+    box-shadow:
+    0 4px 20px
+    rgba(0,0,0,.35);
+}
+
+header h1{
+
+    font-size:36px;
+
+    font-weight:900;
+
+    letter-spacing:.5px;
+
+    text-shadow:
+    0 2px 4px #000,
+    0 0 14px rgba(255,255,255,.35);
+}
+
+header p{
+
+    margin-top:7px;
+
+    font-size:16px;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container{
+
+    width:94%;
+
+    max-width:1200px;
+
+    margin:
+    22px auto
+    45px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search{
+
+    width:100%;
+
+    padding:
+    14px 17px;
+
+    margin-bottom:18px;
+
+    border-radius:14px;
+
+    border:
+    2px solid
+    rgba(255,255,255,.32);
+
+    background:
+    rgba(0,0,0,.76);
+
+    color:#fff;
+
+    font-size:16px;
+
+    outline:none;
+}
+
+.search:focus{
+
+    border-color:#fff;
+
+    box-shadow:
+    0 0 12px
+    rgba(255,255,255,.2);
+}
+
+.search::placeholder{
+
+    color:#ddd;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:13px;
+}
+
+
+/* =========================================================
+   MAIN FOLDER
+========================================================= */
+
+.folder{
+
+    min-height:110px;
+
+    padding:15px 10px;
+
+    border-radius:17px;
+
+    background:
+    rgba(0,0,0,.80);
+
+    border:
+    2px solid
+    rgba(255,255,255,.32);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:
+    transform .2s,
+    background .2s,
+    border .2s;
+
+    box-shadow:
+    0 6px 22px
+    rgba(0,0,0,.35);
+}
+
+.folder:hover{
+
+    transform:
+    translateY(-3px);
+
+    background:
+    rgba(0,0,0,.94);
+
+    border-color:#fff;
+}
+
+.folder-icon{
+
+    font-size:30px;
+
+    margin-bottom:7px;
+}
+
+.folder-name{
+
+    font-size:17px;
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page{
+
+    display:none;
+}
+
+.page.active{
+
+    display:block;
+}
+
+
+/* =========================================================
+   BACK
+========================================================= */
+
+.back{
+
+    border:none;
+
+    padding:
+    10px 17px;
+
+    margin-bottom:16px;
+
+    border-radius:10px;
+
+    background:#fff;
+
+    color:#111;
+
+    font-weight:900;
+
+    font-size:14px;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
+.page-title{
+
+    font-size:26px;
+
+    font-weight:900;
+
+    margin-bottom:16px;
+
+    text-shadow:
+    0 2px 7px #000;
+}
+
+
+/* =========================================================
+   SUB FOLDER
+========================================================= */
+
+.sub-folder{
+
+    padding:16px 10px;
+
+    min-height:58px;
+
+    border-radius:13px;
+
+    background:
+    rgba(0,0,0,.80);
+
+    border:
+    1px solid
+    rgba(255,255,255,.36);
+
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.sub-folder:hover{
+
+    background:
+    rgba(0,0,0,.95);
+
+    border-color:#fff;
+
+    transform:
+    translateY(-2px);
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.details{
+
+    margin-top:18px;
+}
+
+
+/* =========================================================
+   UPDATE CARD
+========================================================= */
+
+.update-card{
+
+    padding:19px;
+
+    border-radius:17px;
+
+    background:
+    rgba(0,0,0,.86);
+
+    border:
+    1px solid
+    rgba(255,255,255,.38);
+
+    box-shadow:
+    0 6px 25px
+    rgba(0,0,0,.35);
+}
+
+.update-card h3{
+
+    font-size:20px;
+
+    line-height:1.5;
+
+    margin-bottom:13px;
+}
+
+.update-row{
+
+    padding:5px 0;
+
+    line-height:1.8;
+
+    font-size:14px;
+}
+
+.update-row strong{
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   OFFICIAL LINK
+========================================================= */
+
+.official-link{
+
+    display:inline-block;
+
+    margin-top:13px;
+
+    padding:
+    11px 16px;
+
+    border-radius:10px;
+
+    background:#fff;
+
+    color:#111;
+
+    text-decoration:none;
+
+    font-weight:900;
+
+    transition:.2s;
+}
+
+.official-link:hover{
+
+    transform:
+    translateY(-2px);
+
+    box-shadow:
+    0 4px 14px
+    rgba(255,255,255,.25);
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status{
+
+    display:inline-block;
+
+    margin-top:12px;
+
+    padding:
+    5px 10px;
+
+    border-radius:8px;
+
+    background:
+    #176b35;
+
+    color:#fff;
+
+    font-size:12px;
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.note{
+
+    margin-top:12px;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    text-align:center;
+
+    padding:17px 10px;
+
+    background:
+    rgba(0,0,0,.66);
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.2);
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media(min-width:800px){
+
+    .grid{
+
+        grid-template-columns:
+        repeat(3,1fr);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:480px){
+
+    header h1{
+
+        font-size:29px;
+    }
+
+    header p{
+
+        font-size:14px;
+    }
+
+    .folder-name{
+
+        font-size:15px;
+    }
+
+    .grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:9px;
+    }
+
+    .folder{
+
+        min-height:100px;
+    }
+
+    .page-title{
+
+        font-size:22px;
+    }
+}
+
+</style>
+
 </head>
 
+
 <body>
-  <h1>Maha Shiv</h1>
-  <h2>Education, Jobs, Results and Updates</h2>
 
-  <hr>
 
-  <h3>📚 Education</h3>
-  <p>Latest education news, exams and study updates.</p>
+<!-- =======================================================
+     HEADER
+======================================================= -->
 
-  <h3>💼 Jobs</h3>
-  <p>Government and private job updates.</p>
+<header>
 
-  <h3>📢 Results</h3>
-  <p>Latest exam results and important updates.</p>
+    <h1>🌟 Maha Shiv</h1>
 
-  <h3>🔔 Latest Updates</h3>
-  <p>Important education and career information.</p>
+    <p>
+        Education • Government Jobs • Results • Latest Updates
+    </p>
 
-  <hr>
+</header>
 
-  <p>© 2026 Maha Shiv</p>
-<section class="contact" id="contact">
-  <h2>📞 Contact Us</h2>
-  <p>तुमच्या प्रश्नांसाठी आमच्याशी संपर्क करा.</p>
 
-  <a href="#" class="contact-btn">📱 WhatsApp</a>
-  <a href="#" class="contact-btn">📧 Email</a>
+<!-- =======================================================
+     CONTENT
+======================================================= -->
 
-  <form>
-    <input type="text" placeholder="तुमचे नाव" required>
-    <input type="email" placeholder="तुमचा Email" required>
-    <textarea placeholder="तुमचा Message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section><section id="contact" style="padding:30px;text-align:center;background:#f5f3ff;">
-  <h2>📞 Contact Us</h2>
-  <p>तुमच्या प्रश्नांसाठी आमच्याशी संपर्क करा.</p>
+<div class="container">
 
-  <form>
-    <input type="text" placeholder="तुमचे नाव" required><br><br>
 
-    <input type="email" placeholder="तुमचा Email" required><br><br>
+<!-- SEARCH -->
 
-    <textarea placeholder="तुमचा Message" rows="5" required></textarea><br><br>
+<input
+    id="search"
+    class="search"
+    type="search"
+    placeholder="🔎 पद / परीक्षा / फोल्डर शोधा..."
+    autocomplete="off"
+>
 
-    <button type="submit">Send Message</button>
-  </form>
-</section> <section id="contact" style="padding:30px;text-align:center;background:#f5f3ff;">
-  <h2>📞 Contact Us</h2>
-  <p>तुमच्या प्रश्नांसाठी आमच्याशी संपर्क करा.</p>
 
-  <form>
-    <input type="text" placeholder="तुमचे नाव" required><br><br>
+<!-- HOME -->
 
-    <input type="email" placeholder="तुमचा Email" required><br><br>
+<section id="home"></section>
 
-    <textarea placeholder="तुमचा Message" rows="5" required></textarea><br><br>
 
-    <button type="submit">Send Message</button>
-  </form>
-</section></body>
+<!-- INNER PAGE -->
+
+<section
+    id="page"
+    class="page"
+>
+
+    <button
+        class="back"
+        onclick="goHome()"
+    >
+        ← मुख्य पान
+    </button>
+
+
+    <h2
+        id="pageTitle"
+        class="page-title"
+    ></h2>
+
+
+    <div
+        id="subFolders"
+        class="grid"
+    ></div>
+
+
+    <div
+        id="details"
+        class="details"
+    ></div>
+
+</section>
+
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © Maha Shiv
+    |
+    Education • Jobs • Results • Updates
+
+</footer>
+
+
+
+<script>
+
+/* ============================================================
+   11 MAIN FOLDERS
+============================================================ */
+
+const folders = [
+
+/* ============================================================
+   1. CENTRAL GOVERNMENT
+============================================================ */
+
+{
+    id:"central",
+
+    icon:"🇮🇳",
+
+    name:"केंद्र सरकारी नोकरी",
+
+    subs:[
+
+        "SSC",
+
+        "UPSC",
+
+        "Railway",
+
+        "Banking",
+
+        "Defence",
+
+        "Post Office",
+
+        "इतर केंद्र विभाग"
+
+    ]
+},
+
+
+/* ============================================================
+   2. MAHARASHTRA GOVERNMENT
+============================================================ */
+
+{
+    id:"maharashtra",
+
+    icon:"🇲🇭",
+
+    name:"महाराष्ट्र सरकारी नोकरी",
+
+    subs:[
+
+        "MPSC",
+
+        "आरोग्य विभाग",
+
+        "महसूल विभाग",
+
+        "जिल्हा परिषद",
+
+        "नगरपरिषद",
+
+        "इतर महाराष्ट्र विभाग"
+
+    ]
+},
+
+
+/* ============================================================
+   3. TEACHER RECRUITMENT
+============================================================ */
+
+{
+    id:"teacher",
+
+    icon:"👨‍🏫",
+
+    name:"शिक्षक भरती",
+
+    subs:[
+
+        "प्राथमिक शिक्षक",
+
+        "माध्यमिक शिक्षक",
+
+        "उच्च माध्यमिक शिक्षक",
+
+        "TET",
+
+        "CTET",
+
+        "TAIT",
+
+        "पवित्र पोर्टल",
+
+        "जिल्हानिहाय शिक्षक भरती"
+
+    ]
+},
+
+
+/* ============================================================
+   4. POLICE
+============================================================ */
+
+{
+    id:"police",
+
+    icon:"👮",
+
+    name:"पोलिस भरती",
+
+    subs:[
+
+        "पोलीस शिपाई",
+
+        "पोलीस चालक",
+
+        "SRPF",
+
+        "जेल विभाग",
+
+        "इतर पोलीस भरती"
+
+    ]
+},
+
+
+/* ============================================================
+   5. ADMIT CARD
+============================================================ */
+
+{
+    id:"admit",
+
+    icon:"🎫",
+
+    name:"Admit Card",
+
+    subs:[
+
+        "केंद्र",
+
+        "महाराष्ट्र"
+
+    ]
+},
+
+
+/* ============================================================
+   6. RESULTS
+============================================================ */
+
+{
+    id:"result",
+
+    icon:"📊",
+
+    name:"निकाल",
+
+    subs:[
+
+        "केंद्र",
+
+        "महाराष्ट्र"
+
+    ]
+},
+
+
+/* ============================================================
+   7. SCHOOL EDUCATION
+============================================================ */
+
+{
+    id:"school",
+
+    icon:"🏫",
+
+    name:"शालेय शिक्षण",
+
+    subs:[
+
+        "Scholarship",
+
+        "नवोदय",
+
+        "NMMS",
+
+        "SCERT",
+
+        "पाठ्यपुस्तके",
+
+        "शालेय परीक्षा",
+
+        "शैक्षणिक योजना",
+
+        "शिक्षण विभाग",
+
+        "Olympiad / स्पर्धा परीक्षा",
+
+        "शालेय शिक्षण Updates"
+
+    ]
+},
+
+
+/* ============================================================
+   8. GR
+============================================================ */
+
+{
+    id:"gr",
+
+    icon:"📜",
+
+    name:"GR",
+
+    subs:[
+
+        "शालेय शिक्षण GR",
+
+        "शिक्षक भरती GR",
+
+        "सामान्य प्रशासन GR",
+
+        "ग्रामविकास GR",
+
+        "वित्त विभाग GR",
+
+        "इतर GR"
+
+    ]
+},
+
+
+/* ============================================================
+   9. MAHA DBT
+============================================================ */
+
+{
+    id:"dbt",
+
+    icon:"💰",
+
+    name:"MAHA DBT",
+
+    subs:[
+
+        "HOSTEL DBT",
+
+        "COLLEGE DBT",
+
+        "ZP DBT",
+
+        "Scholarship DBT",
+
+        "इतर DBT योजना",
+
+        "DBT Official Portal"
+
+    ]
+},
+
+
+/* ============================================================
+   10. COLLEGE
+============================================================ */
+
+{
+    id:"college",
+
+    icon:"🎓",
+
+    name:"महाविद्यालय",
+
+    subs:[
+
+        "पदवीधर",
+
+        "BA",
+
+        "B.Com",
+
+        "B.Sc",
+
+        "BBA",
+
+        "BCA",
+
+        "इतर पदवी",
+
+        "पदव्युत्तर",
+
+        "प्रवेश",
+
+        "शिष्यवृत्ती",
+
+        "परीक्षा",
+
+        "Admit Card",
+
+        "निकाल",
+
+        "GR / सूचना"
+
+    ]
+},
+
+
+/* ============================================================
+   11. LATEST UPDATES
+============================================================ */
+
+{
+    id:"latest",
+
+    icon:"🔔",
+
+    name:"Latest Updates",
+
+    subs:[
+
+        "नवीन जाहिराती",
+
+        "नवीन परीक्षा",
+
+        "नवीन Admit Card",
+
+        "नवीन निकाल",
+
+        "नवीन GR",
+
+        "नवीन शैक्षणिक Updates"
+
+    ]
+}
+
+];
+
+
+
+/* ============================================================
+   OFFICIAL LINKS
+
+   फक्त अधिकृत / विभागीय portals
+============================================================ */
+
+const officialLinks = {
+
+
+/* CENTRAL */
+
+"SSC":
+"https://ssc.gov.in/",
+
+"UPSC":
+"https://www.upsc.gov.in/",
+
+"Railway":
+"https://www.rrb.indianrailways.gov.in/",
+
+"Banking":
+"https://www.ibps.in/",
+
+"Defence":
+"https://www.joinindianarmy.nic.in/",
+
+"Post Office":
+"https://www.indiapost.gov.in/",
+
+
+/* MAHARASHTRA */
+
+"MPSC":
+"https://mpsc.gov.in/",
+
+"आरोग्य विभाग":
+"https://arogya.maharashtra.gov.in/",
+
+"महसूल विभाग":
+"https://mahabhumi.gov.in/",
+
+"जिल्हा परिषद":
+"https://rdd.maharashtra.gov.in/",
+
+"नगरपरिषद":
+"https://mahadma.maharashtra.gov.in/",
+
+
+/* TEACHER */
+
+"TET":
+"https://www.mscepune.in/",
+
+"CTET":
+"https://ctet.nic.in/",
+
+"TAIT":
+"https://www.mscepune.in/",
+
+"पवित्र पोर्टल":
+"https://mahateacherrecruitment.org.in/",
+
+
+/* POLICE */
+
+"पोलीस शिपाई":
+"https://www.mahapolice.gov.in/police-recruitment",
+
+"पोलीस चालक":
+"https://www.mahapolice.gov.in/police-recruitment",
+
+"SRPF":
+"https://www.mahapolice.gov.in/police-recruitment",
+
+"जेल विभाग":
+"https://www.mahapolice.gov.in/police-recruitment",
+
+
+/* SCHOOL */
+
+"NMMS":
+"https://mscenmms.in/",
+
+"Scholarship":
+"https://mahadbt.maharashtra.gov.in/",
+
+
+/* DBT */
+
+"HOSTEL DBT":
+"https://mahadbt.maharashtra.gov.in/",
+
+"COLLEGE DBT":
+"https://mahadbt.maharashtra.gov.in/",
+
+"ZP DBT":
+"https://mahadbt.maharashtra.gov.in/",
+
+"Scholarship DBT":
+"https://mahadbt.maharashtra.gov.in/",
+
+"DBT Official Portal":
+"https://mahadbt.maharashtra.gov.in/"
+
+};
+
+
+
+/* ============================================================
+   SPECIAL LINKS
+============================================================ */
+
+const specialLinks = {
+
+
+/* TEACHER */
+
+"शिक्षक भरती|TET":
+"https://www.mscepune.in/",
+
+"शिक्षक भरती|CTET":
+"https://ctet.nic.in/",
+
+"शिक्षक भरती|TAIT":
+"https://www.mscepune.in/",
+
+"शिक्षक भरती|पवित्र पोर्टल":
+"https://mahateacherrecruitment.org.in/",
+
+
+/* POLICE */
+
+"पोलिस भरती|पोलीस शिपाई":
+"https://www.mahapolice.gov.in/police-recruitment",
+
+"पोलिस भरती|पोलीस चालक":
+"https://www.mahapolice.gov.in/police-recruitment",
+
+"पोलिस भरती|SRPF":
+"https://www.mahapolice.gov.in/police-recruitment",
+
+"पोलिस भरती|जेल विभाग":
+"https://www.mahapolice.gov.in/police-recruitment",
+
+
+/* DBT */
+
+"MAHA DBT|HOSTEL DBT":
+"https://mahadbt.maharashtra.gov.in/",
+
+"MAHA DBT|COLLEGE DBT":
+"https://mahadbt.maharashtra.gov.in/",
+
+"MAHA DBT|ZP DBT":
+"https://mahadbt.maharashtra.gov.in/",
+
+"MAHA DBT|Scholarship DBT":
+"https://mahadbt.maharashtra.gov.in/",
+
+"MAHA DBT|DBT Official Portal":
+"https://mahadbt.maharashtra.gov.in/"
+
+};
+
+
+
+/* ============================================================
+   CATEGORY TYPES
+
+   प्रत्येक Sub-folderला प्रकार मिळतो
+============================================================ */
+
+function getType(folder,sub){
+
+    const admit =
+        folder === "Admit Card" ||
+        sub === "Admit Card" ||
+        sub.includes("Admit");
+
+    const result =
+        folder === "निकाल" ||
+        sub === "निकाल" ||
+        sub.includes("निकाल");
+
+    const gr =
+        folder === "GR" ||
+        sub.includes("GR");
+
+    const education =
+        folder === "शालेय शिक्षण" ||
+        folder === "महाविद्यालय";
+
+    if(admit)
+        return "Admit Card";
+
+    if(result)
+        return "निकाल";
+
+    if(gr)
+        return "GR / शासन निर्णय";
+
+    if(education)
+        return "शैक्षणिक अपडेट";
+
+    return "जाहिरात / परीक्षा";
+}
+
+
+
+/* ============================================================
+   HEADLINE
+
+   पद / परीक्षा / विभागानुसार
+============================================================ */
+
+function makeHeadline(folder,sub){
+
+    if(folder === "Admit Card"){
+
+        return sub === "केंद्र"
+        ?
+        "केंद्र सरकारी परीक्षा — Admit Card"
+        :
+        "महाराष्ट्र सरकारी परीक्षा — Admit Card";
+    }
+
+
+    if(folder === "निकाल"){
+
+        return sub === "केंद्र"
+        ?
+        "केंद्र सरकारी परीक्षा — निकाल"
+        :
+        "महाराष्ट्र सरकारी परीक्षा — निकाल";
+    }
+
+
+    if(folder === "शिक्षक भरती"){
+
+        return sub +
+        " — शिक्षक भरती / परीक्षा / जाहिरात अपडेट";
+    }
+
+
+    if(folder === "पोलिस भरती"){
+
+        return sub +
+        " — पोलिस भरती जाहिरात / परीक्षा / निकाल";
+    }
+
+
+    if(folder === "महाविद्यालय"){
+
+        return sub +
+        " — महाविद्यालयीन शिक्षण / परीक्षा / प्रवेश अपडेट";
+    }
+
+
+    if(folder === "MAHA DBT"){
+
+        return sub +
+        " — DBT योजना / अर्ज / अपडेट";
+    }
+
+
+    if(folder === "शालेय शिक्षण"){
+
+        return sub +
+        " — शालेय शिक्षण अपडेट";
+    }
+
+
+    if(folder === "GR"){
+
+        return sub +
+        " — शासन निर्णय / GR अपडेट";
+    }
+
+
+    if(folder === "Latest Updates"){
+
+        return sub +
+        " — नवीनतम अपडेट";
+    }
+
+
+    return sub +
+    " — अधिकृत जाहिरात / परीक्षा अपडेट";
+}
+
+
+
+/* ============================================================
+   RECORD GENERATOR
+
+   प्रत्येक Sub-folder रिकामा नाही.
+   प्रत्येकासाठी पूर्ण fields तयार होतात.
+============================================================ */
+
+function createRecord(folder,sub){
+
+    const key =
+        folder + "|" + sub;
+
+
+    let link =
+        specialLinks[key]
+        ||
+        officialLinks[sub]
+        ||
+        null;
+
+
+    return {
+
+        key:key,
+
+        folder:folder,
+
+        sub:sub,
+
+        headline:
+        makeHeadline(folder,sub),
+
+        from:
+        "अधिकृत जाहिरातीनुसार",
+
+        to:
+        "अधिकृत जाहिरातीनुसार",
+
+        type:
+        getType(folder,sub),
+
+        link:link,
+
+        status:
+        link
+        ?
+        "Official Source"
+        :
+        "Official Notification Required"
+
+    };
+
+}
+
+
+
+/* ============================================================
+   COMPLETE DATABASE
+
+   प्रत्येक Main + प्रत्येक Sub साठी record
+============================================================ */
+
+const database = {};
+
+
+folders.forEach(function(folder){
+
+    folder.subs.forEach(function(sub){
+
+        const record =
+        createRecord(
+            folder.name,
+            sub
+        );
+
+        database[record.key] =
+        record;
+
+    });
+
+});
+
+
+
+/* ============================================================
+   CURRENT VERIFIED SPECIAL UPDATE DATA
+
+   फक्त web वर अधिकृतरीत्या उपलब्ध असलेली
+   तारीख येथे ठेवली आहे.
+============================================================ */
+
+
+/* CTET September 2026 correction window */
+
+database["शिक्षक भरती|CTET"] = {
+
+    key:"शिक्षक भरती|CTET",
+
+    folder:"शिक्षक भरती",
+
+    sub:"CTET",
+
+    headline:
+    "CTET September 2026 — Correction Window",
+
+    from:
+    "अधिकृत सूचना उपलब्ध",
+
+    to:
+    "18-06-2026",
+
+    type:
+    "Correction Window / परीक्षा अपडेट",
+
+    link:
+    "https://ctet.nic.in/",
+
+    status:
+    "Official CTET Source"
+
+};
+
+
+
+/* ============================================================
+   HOME RENDER
+============================================================ */
+
+function renderHome(list = folders){
+
+    const home =
+    document.getElementById("home");
+
+
+    home.innerHTML = `
+
+        <div class="grid">
+
+            ${
+                list.map(function(folder){
+
+                    const index =
+                    folders.indexOf(folder);
+
+                    return `
+
+                        <div
+                            class="folder"
+                            onclick="openFolder(${index})"
+                        >
+
+                            <div class="folder-icon">
+                                ${folder.icon}
+                            </div>
+
+                            <div class="folder-name">
+                                ${folder.name}
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }).join("")
+            }
+
+        </div>
+
+    `;
+
+
+    document
+    .getElementById("page")
+    .classList.remove("active");
+
+}
+
+
+
+/* ============================================================
+   OPEN MAIN FOLDER
+============================================================ */
+
+function openFolder(index){
+
+    const folder =
+    folders[index];
+
+
+    document
+    .getElementById("home")
+    .style.display="none";
+
+
+    document
+    .getElementById("search")
+    .style.display="none";
+
+
+    document
+    .getElementById("page")
+    .classList.add("active");
+
+
+    document
+    .getElementById("pageTitle")
+    .innerText =
+    folder.icon +
+    " " +
+    folder.name;
+
+
+    document
+    .getElementById("subFolders")
+    .innerHTML =
+
+        folder.subs
+        .map(function(sub,subIndex){
+
+            return `
+
+                <div
+                    class="sub-folder"
+                    onclick="
+                    openSubFolder(
+                        ${index},
+                        ${subIndex}
+                    )"
+                >
+
+                    📁 ${sub}
+
+                </div>
+
+            `;
+
+        }).join("");
+
+
+    document
+    .getElementById("details")
+    .innerHTML="";
+
+}
+
+
+
+/* ============================================================
+   OPEN SUB FOLDER
+============================================================ */
+
+function openSubFolder(
+    folderIndex,
+    subIndex
+){
+
+    const folder =
+    folders[folderIndex];
+
+
+    const sub =
+    folder.subs[subIndex];
+
+
+    const key =
+    folder.name +
+    "|" +
+    sub;
+
+
+    const record =
+    database[key];
+
+
+    if(!record){
+
+        return;
+
+    }
+
+
+    let linkHTML="";
+
+
+    if(record.link){
+
+        linkHTML = `
+
+            <a
+                class="official-link"
+                href="${record.link}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                🔗 Direct Official Link
+
+            </a>
+
+        `;
+
+    }
+    else{
+
+        linkHTML = `
+
+            <div class="note">
+
+                ℹ️ या Sub-folderसाठी
+                specific official notification
+                उपलब्ध झाल्यावर त्या जाहिरातीची
+                Direct Official Link येथे जोडली जाईल.
+
+                <br><br>
+
+                खोटी किंवा अनधिकृत link वापरलेली नाही.
+
+            </div>
+
+        `;
+
+    }
+
+
+    document
+    .getElementById("details")
+    .innerHTML = `
+
+        <div class="update-card">
+
+            <h3>
+                📌 ${record.headline}
+            </h3>
+
+
+            <div class="update-row">
+
+                📂
+                <strong>Main Folder:</strong>
+                ${record.folder}
+
+            </div>
+
+
+            <div class="update-row">
+
+                📁
+                <strong>Sub Folder:</strong>
+                ${record.sub}
+
+            </div>
+
+
+            <div class="update-row">
+
+                📢
+                <strong>Headline:</strong>
+                ${record.headline}
+
+            </div>
+
+
+            <div class="update-row">
+
+                📅
+                <strong>From:</strong>
+                ${record.from}
+
+            </div>
+
+
+            <div class="update-row">
+
+                📅
+                <strong>शेवटची तारीख:</strong>
+                ${record.to}
+
+            </div>
+
+
+            <div class="update-row">
+
+                📋
+                <strong>प्रकार:</strong>
+                ${record.type}
+
+            </div>
+
+
+            ${linkHTML}
+
+
+            <br>
+
+
+            <span class="status">
+
+                ✓ ${record.status}
+
+            </span>
+
+
+            <div class="note">
+
+                <strong>
+                    तारीख नियम:
+                </strong>
+
+                विशिष्ट जाहिरात उपलब्ध झाल्यावर
+                From आणि शेवटची तारीख
+                अधिकृत जाहिरातीतूनच दाखवली जाईल.
+
+                अंदाजे तारीख दाखवली जाणार नाही.
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    window.scrollTo({
+
+        top:
+        document
+        .getElementById("details")
+        .offsetTop - 20,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+
+/* ============================================================
+   SEARCH
+============================================================ */
+
+function searchFolders(){
+
+    const input =
+    document
+    .getElementById("search")
+    .value
+    .toLowerCase()
+    .trim();
+
+
+    if(!input){
+
+        renderHome();
+
+        return;
+
+    }
+
+
+    const results =
+    folders.filter(function(folder){
+
+        const mainMatch =
+        folder.name
+        .toLowerCase()
+        .includes(input);
+
+
+        const subMatch =
+        folder.subs.some(function(sub){
+
+            return sub
+            .toLowerCase()
+            .includes(input);
+
+        });
+
+
+        return mainMatch || subMatch;
+
+    });
+
+
+    renderHome(results);
+
+}
+
+
+
+/* ============================================================
+   GO HOME
+============================================================ */
+
+function goHome(){
+
+    document
+    .getElementById("page")
+    .classList.remove("active");
+
+
+    document
+    .getElementById("home")
+    .style.display="block";
+
+
+    document
+    .getElementById("search")
+    .style.display="block";
+
+
+    document
+    .getElementById("details")
+    .innerHTML="";
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+
+/* ============================================================
+   START
+============================================================ */
+
+renderHome();
+
+
+</script>
+
+</body>
 </html>
